@@ -1,13 +1,17 @@
 # Vitodens 200 Burner Restrictor
-Vitodens 200 with weather compensation unit uses a graph to determine the flow temperature from the outside temperature.
-The idea is to limit the flow temperature instead of restricting the flows by thermostats at each heater. Restricting the flows in a heating system requires more pump energy for the circulation. Vitodens with weather compensation uses no inside thermostat and determines the necessary flow temperature from the graph and two inputs, the slope and the level of the graph, which depend on the house type.
+Vitodens 200 with weather compensation uses a graph to determine the flow temperature from the outside temperature.
+The limitation of the flow temperature leaves thermostats at heaters open. This saves energy to circulate the water through the heating system. 
+
+Vitodens with weather compensation uses no thermostat to measure the room temperature. It assumes by supplying a certain flow temperature to reach a target room temperature. All you need to get right is the level and slope of the graph. These parameters depend on the house type.
+
+With the right parameters this approach will hold the target room temperature once the target temperature has been reached and the parameters do not change because of bad insulation (e.g. drafts from wind).
 
 ## Other Properties of Vitodens 200
-* between two ignitions of the burner is a minimum interval of 4 minutes which cannot be changed
-* the hysteresis between the flow and return flow cannot be set
+* there is a minimum interval between two burner ignitions of 4 minutes which cannot be changed
+* the hysteresis between the flow and return flow is fixed and cannot be changed
 
-## High Burner Ignitions
-What you see happening is: the controls magically determine that the burner needs to ignite. A certain high gas input has to be provided to the ignition, then the burner reduces. Often the flow temperature quickly rises because the return flow is still hot. The burner switches off after less than 2 minutes. Then it is blocked for 4 minutes until the game starts again. After a few such cycles it eventually will happen that the return flow is cold enough and the burner will fire for longer. This easily leads to 150 burner starts within 18 hours causing damage to the gas valve and the relays on the board. With the needed high gas input for the ignition and the short circulation of less than 2 minutes, most of the heat does not get to heaters. Viessmann may tell you to balance the heating system, but that will not solve all issues.
+## High Number of Burner Ignitions
+What you see happening is: the controls magically determine that the burner needs to ignite. A certain high gas input has to be provided for the  ignition, then the burner reduces. Often the flow temperature quickly rises because the return flow is still hot. The burner switches off after less than 2 minutes. Then the burner is blocked for 4 minutes until the game starts again. After a few such cycles it eventually will happen that the return flow is cold enough and the burner will fire a few minutes longer. This easily leads to 150 burner starts within 18 hours for a normal room temperautre of 20 degrees celcius and outside temperatures btw. 0 and 10 degrees celcius. Assuming 100 days of heating per year this leads to approx. 15000 ignitions per year.   causing damage to the gas valve and the relays on the board. With the needed high gas input for the ignition and the short circulation of less than 2 minutes, most of the heat does not get to heaters. Viessmann may tell you to balance the heating system, but that will not solve all issues.
 
 ## Design Issue
 The issue with this design is:
